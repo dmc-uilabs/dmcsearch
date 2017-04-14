@@ -76,6 +76,10 @@ sudo -u solr -E sed -e "s/SOLR_DB_DNS/$solrDbDns/" -e "s/SOLR_DB_PORT/$solrDbPor
 # Edit wiki.data-config.xml
 sudo -u solr -E sed -e "s/SOLR_DB_DNS/$solrDbDns/" -e "s/SOLR_DB_PORT/$solrDbPort/" files/wiki.data-config.xml > /var/solr/data/gforge/wiki/conf/data-config.xml
 
+# Edit currentprojects.data-config.xml
+sudo -u solr -E sed -e "s/SOLR_DB_DNS/$solrDbDns/" -e "s/SOLR_DB_PORT/$solrDbPort/" files/currentprojects.data-config.xml > /var/solr/data/gforge/currentprojects/conf/data-config.xml
+
+
 # Install cron and scripts
 sudo yum install cronie -y
 sudo -u solr cp -r files/scripts  /var/solr
