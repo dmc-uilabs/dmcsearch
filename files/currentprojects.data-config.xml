@@ -1,0 +1,37 @@
+<dataConfig>
+  <script><![CDATA[
+  function skill_keywords(row) { var name = row.get('user_id'); var value = row.get('keywords'); row.put('keywords_s', value); return row; }
+  ]]>
+  </script>
+  <dataSource type="JdbcDataSource"
+              driver="org.postgresql.Driver"
+              url="jdbc:postgresql://SOLR_DB_DNS:SOLR_DB_PORT/gforge"
+              user="gforge" password="gforge"
+              readOnly="true" autoCommit="false"
+              transactionIsolation="TRANSACTION_READ_COMMITTED"
+              holdability="CLOSE_CURSORS_AT_COMMIT"
+	      />
+  <document>
+       <entity name="currentproges"
+            query="select * from dmdii_project">
+      <field column="id" name="id" />
+      <field column="status_id" name="status_id" />
+      <field column="awarded_date" name="awarded_date" />
+      <field column="ended_date" name="ended_date" />
+      <field column="project_title" name="project_title" />
+      <field column="project_summary" name="project_summary" />
+      <field column="short_description" name="short_description" />
+      <field column="principal_point_of_contact_id" name="principal_point_of_contact_id" />
+      <field column="organization_dmdii_member_id" name="organization_dmdii_member_id" />
+      <field column="principal_investigator_id" name="principal_investigator_id" />
+      <field column="focus_area_id" name="focus_area_id" />
+      <field column="thrust_id" name="thrust_id" />
+      <field column="project_root_number" name="project_room_number" />
+      <field column="project_call_number" name="project_call_number" />
+      <field column="project_number" name="project_number" />
+      <field column="cost_share" name="cost_share" />
+      <field column="dmdii_funding" name="dmdii_funding" />
+      <field column="is_deleted" name="is_deleted" />
+    </entity>
+  </document>
+</dataConfig>
